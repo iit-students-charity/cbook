@@ -13,6 +13,7 @@ recipes
   dish (one)
   name
   description
+  recipe_items (many)
 
 author
   recipe (many)
@@ -22,12 +23,17 @@ author
 
 ingredient
   dish (one)
-  preparation_method
   name
-  gram_per_kilogram_of_dish
-  colories_per_gram
   provider (one)
   price_lists (many)
+  recipe_item (many)
+
+recipe_item
+  ingredient (one)
+  recipe (one)
+  preparation_method
+  gram_per_kilogram_of_dish
+  colories_per_gram
 
 provider
   price_list (many)
