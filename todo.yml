@@ -1,0 +1,43 @@
+dish
+  name
+  ingredients (many)
+  recipes (many)
+  group (one)
+
+group
+  dish (many)
+  name
+
+recipes
+  author (one)
+  dish (one)
+  name
+  description
+
+author
+  recipe (many)
+  name
+  surname
+  country
+
+ingredient
+  dish (one)
+  preparation_method
+  name
+  gram_per_kilogram_of_dish
+  colories_per_gram
+  provider (one)
+  price_lists (many)
+
+provider
+  price_list (many)
+  ingredients (many)
+  name
+  address
+  phone_number
+
+price_list
+  date
+  price
+  provider (one)
+  ingredient (one)
