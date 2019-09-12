@@ -2,7 +2,7 @@
 <div>
   <%= button_to 'Удалить', recipe_path(@recipe), method: :delete %>
   <%= button_to 'Редактировать', edit_recipe_path(@recipe), method: :get %>
-<div>
+</div>
 <div>Блюдо: <%= link_to @recipe.dish.name, dish_path(@recipe.dish) %></div>
 <div>Автор: <%= @recipe.author.full_name %></div>
 <h3>Ингредиенты:</h3>

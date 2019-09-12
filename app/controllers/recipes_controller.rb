@@ -34,6 +34,6 @@ class RecipesController < ApplicationController
   end
 
   def recipe
-    @recipe ||= Recipe.find(params.permit(:id)[:id])
+    @recipe ||= Recipe.find(id_from_params)
   end
 end

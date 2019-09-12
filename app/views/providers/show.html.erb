@@ -1,0 +1,18 @@
+<h1>Поставщик <%= @provider.name %></h1>
+
+<div>
+  <%= button_to 'Удалить', provider_path(@provider), method: :delete %>
+  <%= button_to 'Редактировать', edit_provider_path(@provider), method: :get %>
+  <%= button_to 'Прайс листы', edit_provider_path(@provider), method: :get %>
+</div>
+
+<div><%= @provider.name %></div>
+<div>Адрес: <%= @provider.address %></div>
+<div>Номер телефона: <%= @provider.phone_number %></div>
+
+<h2>Ингредиенты</h2>
+<ul>
+  <% @provider.ingredients.each do |ingredient| %>
+    <li><%= ingredient.name %></li>
+  <% end %>
+</ul>

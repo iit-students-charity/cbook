@@ -1,0 +1,21 @@
+<h1>Редактировать поставщик <%= @provider.name %></h1>
+
+<%= form_for @provider do |form| %>
+  <div>Имя: <%= form.text_field :name %></div>
+  <div>Адрес: <%= form.text_field :address %></div>
+  <div>Номер телефона: <%= form.text_field :phone_number %></div>
+  <%= form.submit 'Обновить' %>
+<% end %>
+
+<h2>Ингредиенты</h2>
+<ul>
+  <% @provider.ingredients.each do |ingredient| %>
+    <%= form_for ingredient, remote: true do |form| %>
+      <li>
+        Имя: <%= form.text_field :name %>
+        <%= form.submit 'Обновить' %>
+        <%= button_to 'Обновить прайс лист', edit_provider_path(@provider), method: :get %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
