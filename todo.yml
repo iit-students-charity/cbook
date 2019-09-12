@@ -1,6 +1,6 @@
 dish
   name
-  ingredients (many)
+  ? ingredients (many)
   recipes (many)
   group (one)
 
@@ -47,3 +47,5 @@ price_list
   price
   provider (one)
   ingredient (one)
+
+рецепты (список ингредиентов) блюда поставщики

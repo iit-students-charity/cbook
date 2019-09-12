@@ -1,0 +1,3 @@
+<% @dishes.each do |dish| %>
+  <div><%= link_to dish.name, dish_path(dish) %></div>
+<% end %>
