@@ -30,7 +30,7 @@ class DishesController < ApplicationController
   private
 
   def dish_attributes
-    params.require(:dish).permit(:name, :group_id)
+    params.require(:dish).permit(:name, :group_idP)
   end
 
   def dish

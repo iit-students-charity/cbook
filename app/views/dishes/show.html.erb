@@ -2,9 +2,12 @@
 
 <%= button_to 'Редактировать', edit_dish_path(@dish), method: :get %>
 <%= button_to 'Удалить', dish_path(@dish), method: :delete %>
-<ul>
+<table>
   <% @recipes.each do |recipe| %>
-    <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+    <tr>
+      <td><%= link_to recipe.name, recipe_path(recipe) %></td>
+      <td><%= colories(recipe) %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
 <%= button_to 'Новый рецепт', new_recipe_path, method: :get, params: { dish_id: @dish.id } %>

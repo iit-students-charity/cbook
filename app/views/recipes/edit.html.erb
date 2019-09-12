@@ -1,8 +1,23 @@
-<h1>Edit recipe for <%= @recipe.dish.name %></h1>
+<h1>Редактировать рецепт для блюда <%= @recipe.dish.name %></h1>
 
 <%= form_for @recipe do |form| %>
   <div><%= form.text_field :name %></div>
   <div><%= form.text_area :description, rows: 10 %></div>
   <div><%= form.select :author, Author.all.collect { |author| [author.full_name, author.id]} %></div>
-  <div><%= form.submit 'Update' %></div>
+  <div><%= form.submit 'Обновить' %></div>
+<% end %>
+
+<h3>Изменить ингредиенты:</h3>
+<% @recipe.recipe_items.each_with_index do |item, index| %>
+  <div><%= item.ingredient.name %></div>
+  <%= form_for item, remote: true do |form| %>
+    <div>Способ приготовления: <%= form.text_field :preparation_method %></div>
+    <div>Грамм на килограм блюда: <%= form.number_field :gram_per_kilogram_of_dish %></div>
+    <div>Колорий/грамм: <%= form.number_field :colories_per_gram %></div>
+    <div><%= form.submit 'Обновить' %></div>
+    <div><%= button_to 'Удалить', recipe_item_path(item), method: :delete %></div>
+  <% end %>
+  <% if index != @recipe.recipe_items.size - 1 %>
+    <hr>
+  <% end %>
 <% end %>
