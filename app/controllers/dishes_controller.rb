@@ -1,5 +1,5 @@
 class DishesController < ApplicationController
-  before_action :dish, except: [:index]
+  before_action :dish, except: [:index, :new, :create]
 
   def index
     @dishes = Dish.all
@@ -10,7 +10,11 @@ class DishesController < ApplicationController
   end
 
   def edit
+  end
 
+  def create
+    new_dish = Dish.create(dish_attributes)
+    redirect_to dish_path(new_dish)
   end
 
   def destroy
@@ -26,7 +30,7 @@ class DishesController < ApplicationController
   private
 
   def dish_attributes
-    params.require(:dish).permit(:name)
+    params.require(:dish).permit(:name, :group_id)
   end
 
   def dish

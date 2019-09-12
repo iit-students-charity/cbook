@@ -41,33 +41,27 @@ wolf_pie_recipe_2 = Recipe.create(
 
 berries = Ingredient.create(
   name: 'Ягоды',
-  provider: forester,
-  dish: berry_burger
+  provider: forester
 )
 bun = Ingredient.create(
   name: 'Булочка',
-  provider: baker,
-  dish: berry_burger
+  provider: baker
 )
 loaf = Ingredient.create(
   name: 'Батон',
-  provider: baker,
-  dish: fish_sandwich
+  provider: baker
 )
 fish = Ingredient.create(
   name: 'Рыба',
-  provider: fisher,
-  dish: fish_sandwich
+  provider: fisher
 )
 wolf = Ingredient.create(
   name: 'Волк',
-  provider: hunter,
-  dish: wolf_pie
+  provider: hunter
 )
 flour = Ingredient.create(
   name: 'Мука и другие штуки для пирога',
-  provider: baker,
-  dish: wolf_pie
+  provider: baker
 )
 
 RecipeItem.create(

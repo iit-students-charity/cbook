@@ -1,0 +1,7 @@
+<h1>Новое блюдо</h1>
+
+<%= form_for :dish, url: dishes_path, method: :post do |form| %>
+  <div>Имя: <%= form.text_field :name %></div>
+  <div>Группа: <%= form.select :group_id, Group.all.collect { |group| [group.name, group.id]} %></div>
+  <%= form.submit 'Создать' %>
+<% end %>

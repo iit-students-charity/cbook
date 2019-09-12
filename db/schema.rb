@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2019_09_11_180603) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
-    t.integer "dish_id"
     t.integer "provider_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
