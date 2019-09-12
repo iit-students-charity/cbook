@@ -6,7 +6,7 @@ class DishesController < ApplicationController
   end
 
   def show
-    @recipes = dish.recipes
+    @recipes = dish.recipes.sort_by(&:colories)
   end
 
   def edit

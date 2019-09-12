@@ -4,4 +4,8 @@ class Recipe < ApplicationRecord
   has_many :recipe_items
 
   validates :name, :dish, :description, presence: true
+
+  def colories
+    recipe_items.map(&:colories).inject(:+)
+  end
 end

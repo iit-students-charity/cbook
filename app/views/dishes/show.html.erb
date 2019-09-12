@@ -6,7 +6,7 @@
   <% @recipes.each do |recipe| %>
     <tr>
       <td><%= link_to recipe.name, recipe_path(recipe) %></td>
-      <td><%= colories(recipe) %></td>
+      <td><%= recipe.colories %></td>
     </tr>
   <% end %>
 </table>
