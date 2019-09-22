@@ -2,6 +2,12 @@ class PriceListsController < ApplicationController
   def index
     @provider = Provider.find(params.permit(:provider_id)[:provider_id])
     @price_lists = PriceList.where(provider: @provider)
+    if params.permit(:date)[:date]
+      @price_lists = @price_lists.where(date: date)
+    end
+    respond_to do |format|
+      format.js { render partial: 'price_lists', price_lists: @price_lists }
+    end
   end
 
   def new
