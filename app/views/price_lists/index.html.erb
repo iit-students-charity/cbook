@@ -1,0 +1,31 @@
+<h1>Прайс-листы поставщика <%= @provider.name %></h1>
+Поиск по дате: <%= text_field :price_list, 'Дата' %>
+
+<table>
+  <thead>
+    <td>дата</td>
+    <td>адрес поставщика</td>
+    <td>номер поставщика</td>
+    <td>ингредиент</td>
+    <td>стоимость за единицу</td>
+  </thead>
+  <% @price_lists.each do |price_list| %>
+    <tr>
+      <td>
+        <%= price_list.created_at.strftime("%d.%m.%Y") %>
+      </td>
+      <td>
+        <%= price_list.provider.address %>
+      </td>
+      <td>
+        <%= price_list.provider.phone_number %>
+      </td>
+      <td>
+        <%= price_list.ingredient.name %>
+      </td>
+      <td>
+        <%= price_list.price %>
+      </td>
+    </tr>
+  <% end %>
+</table>

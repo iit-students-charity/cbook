@@ -3,7 +3,7 @@
 <div>
   <%= button_to 'Удалить', provider_path(@provider), method: :delete %>
   <%= button_to 'Редактировать', edit_provider_path(@provider), method: :get %>
-  <%= button_to 'Прайс листы', edit_provider_path(@provider), method: :get %>
+  <%= button_to 'Прайс листы', price_lists_path, method: :get, params: [provider_id: @provider.id] %>
 </div>
 
 <div><%= @provider.name %></div>

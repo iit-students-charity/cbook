@@ -1,4 +1,9 @@
 class PriceListsController < ApplicationController
+  def index
+    @provider = Provider.find(params.permit(:provider_id)[:provider_id])
+    @price_lists = PriceList.where(provider: @provider)
+  end
+
   def new
     @provider_id = params.permit(:provider_id)[:provider_id]
     @ingredient_id = params.permit(:ingredient_id)[:ingredient_id]
