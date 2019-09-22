@@ -4,4 +4,8 @@ class Ingredient < ApplicationRecord
   has_many :recipe_items
 
   validates :name, presence: true
+
+  def last_price
+    price_lists.order(created_at: :asc).last.price
+  end
 end

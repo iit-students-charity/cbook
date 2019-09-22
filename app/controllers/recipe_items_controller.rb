@@ -6,7 +6,9 @@ class RecipeItemsController < ApplicationController
   end
 
   def destroy
+    recipe = recipe_item.recipe
     recipe_item.destroy
+    redirect_to edit_recipe_path(recipe)
   end
 
   private

@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2019_09_11_180603) do
   end
 
   create_table "price_lists", force: :cascade do |t|
-    t.date "date"
     t.float "price"
     t.integer "provider_id"
     t.integer "ingredient_id"

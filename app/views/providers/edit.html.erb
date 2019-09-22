@@ -10,12 +10,15 @@
 <h2>Ингредиенты</h2>
 <ul>
   <% @provider.ingredients.each do |ingredient| %>
-    <%= form_for ingredient, remote: true do |form| %>
-      <li>
+    <li>
+      <%= form_for ingredient, remote: true do |form| %>
         Имя: <%= form.text_field :name %>
+        Последняя цена: <%= ingredient.last_price %>
         <%= form.submit 'Обновить' %>
-        <%= button_to 'Обновить прайс лист', edit_provider_path(@provider), method: :get %>
-      </li>
-    <% end %>
+      <% end %>
+    </li>
+    <%= button_to 'Обновить цену', new_price_list_path, method: :get, params: { ingredient_id: ingredient.id, provider_id: @provider.id} %>
+    <%= button_to 'Удалить', ingredient_path(ingredient), method: :delete %>
   <% end %>
 </ul>
+<%= button_to 'Новый ингредиент', new_ingredient_path, method: :get, params: { provider_id: @provider.id } %>

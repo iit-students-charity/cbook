@@ -5,5 +5,5 @@
   <div><%= form.text_area :description, rows: 10 %></div>
   <div><%= form.select :author_id, Author.all.collect { |author| [author.full_name, author.id]} %></div>
   <%= form.hidden_field :dish_id, value: @dish.id %>
-  <div><%= form.submit 'Create' %></div>
+  <div><%= form.submit 'Создать' %></div>
 <% end %>

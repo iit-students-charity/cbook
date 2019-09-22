@@ -13,6 +13,9 @@
 <h2>Ингредиенты</h2>
 <ul>
   <% @provider.ingredients.each do |ingredient| %>
-    <li><%= ingredient.name %></li>
+    <li>
+      <%= ingredient.name %>
+      Последняя цена: <%= ingredient.last_price %>
+    </li>
   <% end %>
 </ul>

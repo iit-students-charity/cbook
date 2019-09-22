@@ -6,6 +6,6 @@ class Recipe < ApplicationRecord
   validates :name, :dish, :description, presence: true
 
   def colories
-    recipe_items.map(&:colories).inject(:+)
+    recipe_items.map(&:colories).inject(:+) || 0
   end
 end
