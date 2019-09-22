@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  root to: "dishes#index"
+
   resources :dishes
-  resources :recipes
-  resources :recipe_items
+  resources :ingredients, only: [:new, :create, :update, :destroy]
+  resources :price_lists, only: [:index, :new, :create]
   resources :providers
-  resources :ingredients
-  resources :price_lists
+  resources :recipe_items, only: [:update, :destroy]
+  resources :recipes, except: :index
 end

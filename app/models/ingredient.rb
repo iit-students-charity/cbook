@@ -1,7 +1,7 @@
 class Ingredient < ApplicationRecord
   belongs_to :provider
-  has_many :price_lists
-  has_many :recipe_items
+  has_many :price_lists, dependent: :destroy
+  has_many :recipe_items, dependent: :destroy
 
   validates :name, presence: true
 

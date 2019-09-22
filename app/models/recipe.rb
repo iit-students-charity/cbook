@@ -1,7 +1,7 @@
 class Recipe < ApplicationRecord
   belongs_to :author
   belongs_to :dish
-  has_many :recipe_items
+  has_many :recipe_items, dependent: :destroy
 
   validates :name, :dish, :description, presence: true
 

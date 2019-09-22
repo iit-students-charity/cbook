@@ -2,12 +2,12 @@ class IngredientsController < ApplicationController
   before_action :ingredient, except: [:new, :create]
 
   def new
-    @provider_id = params.permit(:provider_id)[:provider_id]
+    @provider_id = params[:provider_id]
   end
 
   def create
     ingredient = Ingredient.create(ingredient_attributes)
-    PriceList.create(ingredient: ingredient, provider: ingredient.provider, price: params.require(:ingredient).permit(:price)[:price])
+    PriceList.create(ingredient: ingredient, provider: ingredient.provider, price: params[:ingredient][:price])
     redirect_to edit_provider_path(ingredient.provider)
   end
 
@@ -24,7 +24,7 @@ class IngredientsController < ApplicationController
   private
 
   def ingredient
-    @ingredient ||= Ingredient.find(id_from_params)
+    @ingredient ||= Ingredient.find(params[:id])
   end
 
   def ingredient_attributes

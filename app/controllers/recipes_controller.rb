@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @dish = Dish.find(params.permit(:dish_id)[:dish_id])
+    @dish = Dish.find(params[:dish_id])
   end
 
   def create
@@ -34,6 +34,6 @@ class RecipesController < ApplicationController
   end
 
   def recipe
-    @recipe ||= Recipe.find(id_from_params)
+    @recipe ||= Recipe.find(params[:id])
   end
 end

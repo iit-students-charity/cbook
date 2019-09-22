@@ -14,7 +14,7 @@ class RecipeItemsController < ApplicationController
   private
 
   def recipe_item
-    @recipe_item ||= RecipeItem.find(id_from_params)
+    @recipe_item ||= RecipeItem.find(params[:id])
   end
 
   def recipe_item_attributes

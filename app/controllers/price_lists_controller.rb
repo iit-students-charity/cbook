@@ -2,9 +2,7 @@ class PriceListsController < ApplicationController
   def index
     @provider = Provider.find(params[:provider_id])
     @price_lists = PriceList.where(provider: @provider)
-    if params[:date]
-      @price_lists = @price_lists.where(created_at: params[:date])
-    end
+    @price_lists = @price_lists.where(created_at: params[:date]) if params[:date]
     respond_to do |format|
       format.html { render 'index' }
       format.js { render partial: 'price_lists', price_lists: @price_lists }
