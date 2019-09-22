@@ -114,12 +114,12 @@ RecipeItem.create(
   recipe: wolf_pie_recipe_2
 )
 
-PriceList.create(created_at: Date.today, price: 10, provider: forester, ingredient: berries)
-PriceList.create(created_at: Date.today, price: 5, provider: baker, ingredient: bun)
-PriceList.create(created_at: Date.today, price: 5, provider: baker, ingredient: loaf)
-PriceList.create(created_at: Date.today, price: 2, provider: baker, ingredient: flour)
-PriceList.create(created_at: Date.today, price: 10, provider: fisher, ingredient: fish)
-PriceList.create(created_at: Date.today, price: 1000, provider: hunter, ingredient: wolf)
+PriceList.create(price: 10, provider: forester, ingredient: berries)
+PriceList.create(price: 5, provider: baker, ingredient: bun)
+PriceList.create(price: 5, provider: baker, ingredient: loaf)
+PriceList.create(price: 2, provider: baker, ingredient: flour)
+PriceList.create(price: 10, provider: fisher, ingredient: fish)
+PriceList.create(price: 1000, provider: hunter, ingredient: wolf)
 PriceList.create(created_at: Date.yesterday, price: 2000, provider: hunter, ingredient: wolf)
 PriceList.create(created_at: Date.today - 2.days, price: 100, provider: hunter, ingredient: wolf)
 PriceList.create(created_at: Date.today - 5.days, price: 771, provider: hunter, ingredient: wolf)

@@ -1,21 +1,26 @@
 <h1>Поставщик <%= @provider.name %></h1>
 
-<div>
-  <%= button_to 'Удалить', provider_path(@provider), method: :delete %>
-  <%= button_to 'Редактировать', edit_provider_path(@provider), method: :get %>
-  <%= button_to 'Прайс листы', price_lists_path, method: :get, params: [provider_id: @provider.id] %>
+<div class="d-flex mb-3">
+  <%= button_to 'Удалить', provider_path(@provider), method: :delete, class: 'btn btn-danger' %>
+  <%= button_to 'Редактировать', edit_provider_path(@provider), method: :get, class: 'btn btn-primary ml-2' %>
+  <%= button_to 'Прайс листы', price_lists_path, method: :get, params: [provider_id: @provider.id], class: 'btn btn-primary ml-2' %>
 </div>
 
-<div><%= @provider.name %></div>
 <div>Адрес: <%= @provider.address %></div>
 <div>Номер телефона: <%= @provider.phone_number %></div>
 
 <h2>Ингредиенты</h2>
-<ul>
-  <% @provider.ingredients.each do |ingredient| %>
-    <li>
-      <%= ingredient.name %>
-      Последняя цена: <%= ingredient.last_price %>
-    </li>
+<table class="table">
+  <thead>
+    <td>Название</td>
+    <td>Последняя цена</td>
+  </thead>
+  <tbody>
+    <% @provider.ingredients.each do |ingredient| %>
+      <tr>
+        <td><%= ingredient.name %></td>
+        <td><%= ingredient.last_price %></td>
+      </tr>
   <% end %>
+  <tbody>
 </ul>

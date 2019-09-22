@@ -1,5 +1,9 @@
-<% @dishes.each do |dish| %>
-  <div><%= link_to dish.name, dish_path(dish) %></div>
-<% end %>
-<%= button_to 'Новое блюдо', new_dish_path, method: :get %>
-<%= button_to 'Поставщики', providers_path, method: :get %>
+<h1>Блюда</h1>
+
+<ul>
+  <% @dishes.each do |dish| %>
+    <li><%= link_to dish.name, dish_path(dish) %></li>
+  <% end %>
+</ul>
+
+<%= button_to 'Новое блюдо', new_dish_path, method: :get, class: "btn btn-success" %>

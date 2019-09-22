@@ -1,9 +1,12 @@
-<h1>New recipe for <%= @dish.name %></h1>
+<h1>Новый рецепт для блюда <%= @dish.name %></h1>
 
 <%= form_for :recipe, url: recipes_path, method: :post do |form| %>
-  <div><%= form.text_field :name %></div>
-  <div><%= form.text_area :description, rows: 10 %></div>
-  <div><%= form.select :author_id, Author.all.collect { |author| [author.full_name, author.id]} %></div>
+  <label for="recipe_name">Имя:</label>
+  <%= form.text_field :name, class: "form-control w-50 mb-2" %>
+  <label for="recipe_description">Описание:</label>
+  <%= form.text_area :description, rows: 10, class: "form-control w-50 mb-2" %>
+  <label for="recipe_author">Автор:</label>
+  <%= form.select :author_id, Author.all.collect { |author| [author.full_name, author.id]}, {}, { class: "form-control w-50 mb-2" } %>
   <%= form.hidden_field :dish_id, value: @dish.id %>
-  <div><%= form.submit 'Создать' %></div>
+  <div><%= form.submit 'Создать', class: "btn btn-success mt-2" %></div>
 <% end %>

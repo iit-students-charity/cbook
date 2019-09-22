@@ -1,24 +1,38 @@
-<h1>Редактировать поставщик <%= @provider.name %></h1>
+<h1 data-provider-id="<%= @provider.id %>">Редактировать поставщик <%= @provider.name %></h1>
 
 <%= form_for @provider do |form| %>
-  <div>Имя: <%= form.text_field :name %></div>
-  <div>Адрес: <%= form.text_field :address %></div>
-  <div>Номер телефона: <%= form.text_field :phone_number %></div>
-  <%= form.submit 'Обновить' %>
+  <label for="provider_name">Имя:</label>
+  <%= form.text_field :name, class: 'form-control w-50 mb-2' %>
+  <label for="provider_address">Адрес:</label>
+  <%= form.text_field :address, class: 'form-control w-50 mb-2' %>
+  <label for="provider_phone_number">Номер телефона:</label>
+  <%= form.text_field :phone_number, class: 'form-control w-50 mb-2' %>
+  <%= form.submit 'Обновить', class: 'btn btn-primary mt-2 mb-2' %>
 <% end %>
 
 <h2>Ингредиенты</h2>
-<ul>
-  <% @provider.ingredients.each do |ingredient| %>
-    <li>
-      <%= form_for ingredient, remote: true do |form| %>
-        Имя: <%= form.text_field :name %>
-        Последняя цена: <%= ingredient.last_price %>
-        <%= form.submit 'Обновить' %>
-      <% end %>
-    </li>
-    <%= button_to 'Обновить цену', new_price_list_path, method: :get, params: { ingredient_id: ingredient.id, provider_id: @provider.id} %>
-    <%= button_to 'Удалить', ingredient_path(ingredient), method: :delete %>
-  <% end %>
-</ul>
-<%= button_to 'Новый ингредиент', new_ingredient_path, method: :get, params: { provider_id: @provider.id } %>
+<table class="table">
+  <thead>
+    <td>Имя</td>
+    <td>Цена</td>
+  </thead>
+  <tbody>
+    <% @provider.ingredients.each do |ingredient| %>
+      <tr data-id="<%= ingredient.id %>">
+        <td>
+          <%= form_for ingredient, url: ingredient_path, method: :patch, remote: true do |form| %>
+            <%= form.text_field :name, class: 'form-control mb-2' %>
+            <%= form.submit 'Обновить имя', class: 'btn btn-primary' %>
+            <%= form.hidden_field 'id', value: ingredient.id %>
+            <%= button_to 'Удалить', '#', id: 'ingredient-table__delete-button', class: 'btn btn-danger' %>
+          <% end %>
+        </td>
+        <td>
+          <%= text_field :ingredient, :last_price, value: ingredient.last_price, class: 'form-control' %>
+          <button id="ingredient-table__update-price-button" class="btn btn-primary mt-2">Обновить цену</button>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= button_to 'Новый ингредиент', new_ingredient_path, method: :get, params: { provider_id: @provider.id }, class: 'btn btn-success' %>

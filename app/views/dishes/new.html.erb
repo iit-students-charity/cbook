@@ -1,7 +1,13 @@
 <h1>Новое блюдо</h1>
 
 <%= form_for :dish, url: dishes_path, method: :post do |form| %>
-  <div>Имя: <%= form.text_field :name %></div>
-  <div>Группа: <%= form.select :group_id, Group.all.collect { |group| [group.name, group.id]} %></div>
-  <%= form.submit 'Создать' %>
+  <div>
+    <label for="dish_name">Имя:</label>
+    <%= form.text_field :name, class: "form-control w-50 mb-3" %>
+  </div>
+  <div>
+    <label for="dish_group_id">Группа:</label>
+    <%= form.select :group_id, Group.all.collect { |group| [group.name, group.id]}, {}, { class: "form-control w-50 mb-3" } %>
+  </div>
+  <%= form.submit 'Создать', class: "btn btn-success" %>
 <% end %>

@@ -1,4 +1,5 @@
 <h1>Поставщики</h1>
+
 <ul>
   <% @providers.each do |provider| %>
     <li><%= link_to provider.name, provider_path(provider) %></li>

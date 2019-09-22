@@ -1,13 +1,15 @@
 <h1><%= @recipe.name %></h1>
-<div>
-  <%= button_to 'Удалить', recipe_path(@recipe), method: :delete %>
-  <%= button_to 'Редактировать', edit_recipe_path(@recipe), method: :get %>
+<div class="d-flex mb-3">
+  <%= button_to 'Удалить', recipe_path(@recipe), method: :delete, class: "btn btn-primary" %>
+  <%= button_to 'Редактировать', edit_recipe_path(@recipe), method: :get, class: "btn btn-danger ml-2" %>
 </div>
+
 <div>Блюдо: <%= link_to @recipe.dish.name, dish_path(@recipe.dish) %></div>
 <div>Автор: <%= @recipe.author.full_name %></div>
+
 <h3>Ингредиенты:</h3>
 <% @recipe.recipe_items.each_with_index do |item, index| %>
-  <div><%= item.ingredient.name %></div>
+  <div><b><%= item.ingredient.name %></b></div>
   <div>Способ приготовления: <%= item.preparation_method %></div>
   <div>Грамм на килограм блюда: <%= item.gram_per_kilogram_of_dish %></div>
   <div>Колорий/грамм: <%= item.colories_per_gram %></div>

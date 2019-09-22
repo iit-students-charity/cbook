@@ -2,11 +2,13 @@
 
 <h1>Прайс-листы поставщика <%= @provider.name %></h1>
 
-Поиск по дате:
-<input type="text" id="datepicker" data-provide='datepicker' data-date-format="dd.mm.yyyy">
-<button id="provider-search__search-button">Искать</button>
+<label for="datepicker">Поиск по дате:</label>
+<div class="d-flex mb-3">
+  <input type="text" id="datepicker" class="form-control w-50" data-provide='datepicker' data-date-format="dd.mm.yyyy">
+  <button id="provider-search__search-button" class="btn btn-primary ml-2">Искать</button>
+</div>
 
-<table>
+<table class="table">
   <thead>
     <td>Дата</td>
     <td>Адрес поставщика</td>

@@ -10,6 +10,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <section class="header d-flex">
+      <%= button_to 'Поставщики', providers_path, method: :get, class: "btn btn-primary" %>
+      <%= button_to 'Блюда', dishes_path, method: :get, class: "btn btn-primary ml-2" %>
+    </section>
+    <hr>
+    <section class="main">
+      <%= yield %>
+    </section>
   </body>
 </html>

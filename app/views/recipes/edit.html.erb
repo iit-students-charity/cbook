@@ -1,21 +1,29 @@
 <h1>Редактировать рецепт для блюда <%= @recipe.dish.name %></h1>
 
 <%= form_for @recipe do |form| %>
-  <div><%= form.text_field :name %></div>
-  <div><%= form.text_area :description, rows: 10 %></div>
-  <div><%= form.select :author, Author.all.collect { |author| [author.full_name, author.id]} %></div>
-  <div><%= form.submit 'Обновить' %></div>
+  <label for="recipe_name">Имя:</label>
+  <%= form.text_field :name, class: "form-control w-50 mb-2" %>
+  <label for="recipe_description">Описание:</label>
+  <%= form.text_area :description, rows: 10, class: "form-control w-50 mb-2" %>
+  <label for="recipe_author">Автор:</label>
+  <%= form.select :author_id, Author.all.collect { |author| [author.full_name, author.id]}, {}, { class: "form-control w-50 mb-2" } %>
+  <div><%= form.submit 'Обновить', class: "btn btn-primary mt-2 mb-3" %></div>
 <% end %>
 
-<h3>Изменить ингредиенты:</h3>
+<h3>Изменить ингредиенты и способы приготовления:</h3>
 <% @recipe.recipe_items.each_with_index do |item, index| %>
-  <div><%= item.ingredient.name %></div>
+  <h4><%= item.ingredient.name %></h4>
   <%= form_for item, url: ingredient_path(item), method: :patch, remote: true do |form| %>
-    <div>Способ приготовления: <%= form.text_field :preparation_method %></div>
-    <div>Грамм на килограм блюда: <%= form.number_field :gram_per_kilogram_of_dish %></div>
-    <div>Колорий/грамм: <%= form.number_field :colories_per_gram %></div>
-    <div><%= form.submit 'Обновить' %></div>
-    <div><%= button_to 'Удалить', recipe_item_path(item), method: :delete %></div>
+    <label>Способ приготовления:</label>
+    <%= form.text_field :preparation_method, class: "form-control w-50 mb-2" %>
+    <label>Грамм на килограм блюда:</label>
+    <%= form.number_field :gram_per_kilogram_of_dish, class: "form-control w-50 mb-2" %>
+    <label>Колорий/грамм:</label>
+    <%= form.number_field :colories_per_gram, class: "form-control w-50 mb-2" %>
+    <div class="d-flex mt-3 mb-3">
+      <%= form.submit 'Обновить', class: "btn btn-primary" %>
+      <%= button_to 'Удалить', recipe_item_path(item), method: :delete, class: "btn btn-danger ml-2" %>
+    </div>
   <% end %>
   <% if index != @recipe.recipe_items.size - 1 %>
     <hr>

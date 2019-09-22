@@ -18,6 +18,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
+  gem 'awesome_print'
   gem 'pry'
   gem 'pry-byebug'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

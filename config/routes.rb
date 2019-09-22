@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :dishes
   resources :ingredients, only: [:new, :create, :update, :destroy]
-  resources :price_lists, only: [:index, :new, :create]
+  resources :price_lists, only: [:index, :create]
   resources :providers
   resources :recipe_items, only: [:update, :destroy]
   resources :recipes, except: :index

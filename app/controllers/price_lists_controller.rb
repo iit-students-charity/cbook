@@ -9,14 +9,8 @@ class PriceListsController < ApplicationController
     end
   end
 
-  def new
-    @provider_id = params[:provider_id]
-    @ingredient_id = params[:ingredient_id]
-  end
-
   def create
-    price_list = PriceList.create(price_list_attributes)
-    redirect_to edit_provider_path(price_list.provider)
+    price_list = PriceList.create(price: params[:price], provider_id: params[:provider_id], ingredient_id: params[:ingredient_id])
   end
 
   private
