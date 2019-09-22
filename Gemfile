@@ -18,12 +18,8 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
-  gem 'hirb'
-  gem 'hirb-unicode-steakknife', require: 'hirb-unicode'
   gem 'pry'
   gem 'pry-byebug'
-  gem 'pry-stack_explorer'
-  gem 'awesome_rails_console'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
 end

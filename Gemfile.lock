@@ -49,14 +49,7 @@ GEM
     arel (9.0.0)
     autoprefixer-rails (9.6.1.1)
       execjs
-    awesome_print (1.8.0)
-    awesome_rails_console (0.4.3)
-      awesome_print
-      pry-rails
-      railties
     bindex (0.8.1)
-    binding_of_caller (0.8.0)
-      debug_inspector (>= 0.0.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
     bootstrap (4.3.1)
@@ -90,7 +83,6 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
-    debug_inspector (0.0.3)
     dotenv (2.7.5)
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
@@ -100,10 +92,6 @@ GEM
     ffi (1.11.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    hirb (0.7.3)
-    hirb-unicode-steakknife (0.0.8)
-      hirb (~> 0.5)
-      unicode-display_width (~> 1.1)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
@@ -141,11 +129,6 @@ GEM
     pry-byebug (3.7.0)
       byebug (~> 11.0)
       pry (~> 0.10)
-    pry-rails (0.3.9)
-      pry (>= 0.10.4)
-    pry-stack_explorer (0.4.9.3)
-      binding_of_caller (>= 0.7)
-      pry (>= 0.9.11)
     public_suffix (4.0.1)
     puma (3.12.1)
     rack (2.0.7)
@@ -225,7 +208,6 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
-    unicode-display_width (1.6.0)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -241,7 +223,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  awesome_rails_console
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
   bootstrap-datepicker-rails
@@ -250,15 +231,12 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   dotenv-rails
-  hirb
-  hirb-unicode-steakknife
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   pry
   pry-byebug
-  pry-stack_explorer
   puma (~> 3.11)
   rails (~> 5.2.3)
   sass-rails (~> 5.0)

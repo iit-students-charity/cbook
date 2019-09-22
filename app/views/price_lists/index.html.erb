@@ -1,8 +1,11 @@
-<h1>Прайс-листы поставщика <%= @provider.name %></h1>
-Поиск по дате:
-<input type="text" data-provide='datepicker' data-date-format="dd.mm.yyyy">
+<div id="provider-id" class="hidden"><%= @provider.id %></div>
 
-<%= button_to 'Искать', price_lists_path, method: :get %>
+<h1>Прайс-листы поставщика <%= @provider.name %></h1>
+
+Поиск по дате:
+<input type="text" id="datepicker" data-provide='datepicker' data-date-format="dd.mm.yyyy">
+<button id="provider-search__search-button">Искать</button>
+
 <table>
   <thead>
     <td>Дата</td>
@@ -11,5 +14,7 @@
     <td>Ингредиент</td>
     <td>Стоимость за единицу</td>
   </thead>
-  <%= render partial: 'price_lists', price_lists: @price_lists %>
+  <tbody>
+    <%= render partial: 'price_lists', price_lists: @price_lists %>
+  </tbody>
 </table>
