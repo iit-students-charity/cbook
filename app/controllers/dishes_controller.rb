@@ -9,9 +9,6 @@ class DishesController < ApplicationController
     @recipes = dish.recipes.sort_by(&:colories)
   end
 
-  def edit
-  end
-
   def create
     new_dish = Dish.create(dish_attributes)
     redirect_to dish_path(new_dish)

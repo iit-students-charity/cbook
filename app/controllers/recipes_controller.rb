@@ -1,12 +1,6 @@
 class RecipesController < ApplicationController
   before_action :recipe, except: [:new, :create]
 
-  def show
-  end
-
-  def edit
-  end
-
   def new
     @dish = Dish.find(params[:dish_id])
   end

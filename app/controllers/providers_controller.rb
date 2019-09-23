@@ -5,15 +5,6 @@ class ProvidersController < ApplicationController
     @providers = Provider.all
   end
 
-  def show
-  end
-
-  def edit
-  end
-
-  def new
-  end
-
   def create
     provider = Provider.create(provider_attributes)
     redirect_to provider_path(id: provider.id)
