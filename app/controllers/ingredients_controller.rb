@@ -7,7 +7,7 @@ class IngredientsController < ApplicationController
 
   def create
     ingredient = Ingredient.create(ingredient_attributes)
-    PriceList.create(ingredient: ingredient, provider: ingredient.provider, price: params[:ingredient][:price])
+    PriceList.create(ingredient: ingredient, provider: ingredient.provider, price: params[:ingredient][:price] || 0)
     redirect_to edit_provider_path(ingredient.provider)
   end
 

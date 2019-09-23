@@ -10,22 +10,27 @@
   <div><%= form.submit 'Обновить', class: "btn btn-primary mt-2 mb-3" %></div>
 <% end %>
 
-<h3>Изменить ингредиенты и способы приготовления:</h3>
+<div class="d-flex">
+  <h3>Изменить ингредиенты и способы приготовления:</h3>
+  <%= button_to 'Добавить', new_recipe_item_path, method: :get, params: { recipe_id: @recipe.id }, class: "btn btn-primary ml-2" %>
+</div>
 <% @recipe.recipe_items.each_with_index do |item, index| %>
-  <h4><%= item.ingredient.name %></h4>
-  <%= form_for item, url: ingredient_path(item), method: :patch, remote: true do |form| %>
-    <label>Способ приготовления:</label>
-    <%= form.text_field :preparation_method, class: "form-control w-50 mb-2" %>
-    <label>Грамм на килограм блюда:</label>
-    <%= form.number_field :gram_per_kilogram_of_dish, class: "form-control w-50 mb-2" %>
-    <label>Колорий/грамм:</label>
-    <%= form.number_field :colories_per_gram, class: "form-control w-50 mb-2" %>
-    <div class="d-flex mt-3 mb-3">
-      <%= form.submit 'Обновить', class: "btn btn-primary" %>
-      <%= button_to 'Удалить', recipe_item_path(item), method: :delete, class: "btn btn-danger ml-2" %>
-    </div>
-  <% end %>
-  <% if index != @recipe.recipe_items.size - 1 %>
-    <hr>
-  <% end %>
+  <div class="recipe-item" data-recipe-item-id="<%= item.id %>">
+    <h4><%= item.ingredient.name %></h4>
+    <%= form_for item, url: recipe_item_path(item), method: :patch, remote: true do |form| %>
+      <label>Способ приготовления:</label>
+      <%= form.text_field :preparation_method, class: "form-control w-50 mb-2" %>
+      <label>Грамм на килограм блюда:</label>
+      <%= form.number_field :gram_per_kilogram_of_dish, class: "form-control w-50 mb-2" %>
+      <label>Колорий/грамм:</label>
+      <%= form.number_field :colories_per_gram, class: "form-control w-50 mb-2" %>
+      <div class="d-flex mt-3 mb-3">
+        <%= form.submit 'Обновить', class: "btn btn-primary" %>
+        <button id="recipe-item__delete-button" class="btn btn-danger ml-2">Удалить</button>
+      </div>
+    <% end %>
+    <% if index != @recipe.recipe_items.size - 1 %>
+      <hr>
+    <% end %>
+  </div>
 <% end %>

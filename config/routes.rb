@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :ingredients, only: [:new, :create, :update, :destroy]
   resources :price_lists, only: [:index, :create]
   resources :providers
-  resources :recipe_items, only: [:update, :destroy]
+  resources :recipe_items, only: [:update, :destroy, :new, :create]
   resources :recipes, except: :index
 end

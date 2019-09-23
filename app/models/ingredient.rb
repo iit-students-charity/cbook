@@ -6,6 +6,6 @@ class Ingredient < ApplicationRecord
   validates :name, presence: true
 
   def last_price
-    price_lists.order(created_at: :asc).last.price
+    price_lists.order(created_at: :asc).last&.price
   end
 end

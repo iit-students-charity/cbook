@@ -13,7 +13,11 @@ class RecipesController < ApplicationController
 
   def create
     recipe = Recipe.create(recipe_attributes)
-    redirect_to recipe_path(id: recipe.id)
+    if recipe.valid?
+      redirect_to recipe_path(id: recipe.id)
+    else
+      redirect_to new_recipe_path(dish_id: params[:recipe][:dish_id])
+    end
   end
 
   def update

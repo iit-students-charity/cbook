@@ -1,0 +1,14 @@
+<h1>Новый ингредиент</h1>
+
+<%= form_for :recipe_item, url: recipe_items_path, method: :post do |form| %>
+  <label for="recipe_item_preparation_method">Способ приготовления:</label>
+  <%= form.text_field :preparation_method, class: 'form-control w-50 mb-3' %>
+  <label for="recipe_item_gram_per_kilogram_of_dish">Грамм ингредиента/килограмм блюда:</label>
+  <%= form.number_field :gram_per_kilogram_of_dish, class: 'form-control w-50 mb-3' %>
+  <label for="recipe_item_colories_per_gram">Колорий/грамм ингредиента:</label>
+  <%= form.number_field :colories_per_gram, class: 'form-control w-50 mb-3' %>
+  <label for="recipe_item_ingredient">Ингредиент:</label>
+  <%= form.select :ingredient_id, Ingredient.all.collect { |ingredient| [ingredient.name, ingredient.id]}, {}, { class: "form-control w-50 mb-3" } %>
+  <%= form.hidden_field :recipe_id, value: @recipe_id %>
+  <%= form.submit 'Создать', class: 'btn btn-success' %>
+<% end %>
