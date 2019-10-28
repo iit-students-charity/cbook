@@ -31,6 +31,6 @@ class DishesController < ApplicationController
   end
 
   def dish
-    @dish ||= Dish.find(params.permit(:id)[:id])
+    @dish ||= Dish.find(params[:id])
   end
 end

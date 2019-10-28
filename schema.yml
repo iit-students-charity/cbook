@@ -1,0 +1,58 @@
+Table dish {
+  name string
+  recipes (many)
+  group_id integer
+}
+
+Table group {
+  dish (many)
+  name string
+}
+
+Table recipes {
+  author_id integer
+  dish_id integer
+  name string
+  description text
+  recipe_items (many)
+}
+
+Table author {
+  recipe (many)
+  name string
+  surname string
+  country string
+}
+
+Table ingredient {
+  name string
+  provider_id integer
+  price_lists (many)
+  recipe_item (many)
+}
+
+Table recipe_item {
+  ingredient_id integer
+  recipe_id integer
+  preparation_method text
+  gram_per_kilogram_of_dish integer
+  colories_per_gram integer
+}
+
+Table provider {
+  price_list (many)
+  ingredients (many)
+  name string
+  address string
+  phone_number string
+}
+
+Table price_list {
+  date date
+  price float
+  provider_id integer
+  ingredient_id integer
+}
+
+
+https://dbdiagram.io/d/5db5d92302e6e93440f2ada6
